@@ -9,7 +9,6 @@ def identify_dataset_type(
     pandas_datasets: Optional[List[Type[AbstractDataSet]]] = None,
     spark_datasets: Optional[List[Type[AbstractDataSet]]] = None,
 ) -> Optional[DatasourceTypes]:
-    from kedro.extras.datasets.spark import SparkDataSet
     from kedro.extras.datasets.pandas import CSVDataSet, ExcelDataSet
 
     default_pandas_datasets = [
@@ -17,7 +16,6 @@ def identify_dataset_type(
         ExcelDataSet,
     ]
 
-    default_spark_datasets = [SparkDataSet]
 
     if pandas_datasets is None:
         pandas_datasets = []
@@ -25,7 +23,6 @@ def identify_dataset_type(
         spark_datasets = []
 
     pandas_datasets += default_pandas_datasets
-    spark_datasets += default_spark_datasets
 
     def _dataset_isinstance_of_list(
         target_dataset: AbstractDataSet, dataset_list: List[Type[AbstractDataSet]]
