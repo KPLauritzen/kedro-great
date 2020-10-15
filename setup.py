@@ -19,9 +19,7 @@ setup(
     install_requires=[
         "kedro>=0.16.0",
         "kedro[pandas]>=0.16.0",
-        "kedro[spark]>=0.16.0",
         "great_expectations",
-        "pyspark",
         "pandas",
     ],
     classifiers=[
